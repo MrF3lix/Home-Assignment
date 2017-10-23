@@ -1,17 +1,24 @@
 $(document).ready(function() {
     populateTable();
 
-    $(".up-vote").on('click', function(e){
+    $(".vote").on('click', function(e){
+        var isUpvote = false;
+        if($(this).hasClass("up-vote"))
+        {
+            isUpvote = true;
+        }
+        
         var index = getIndexOfClickedItem(e);
-        updateVoteCount(index, true);
-        updatePositionOfElement(index, true);
-    });
+        var oldIndex;
 
+        updateVoteCount(index, isUpvote);
 
-    $(".down-vote").on('click', function(e){
-        var index = getIndexOfClickedItem(e);
-        updateVoteCount(index, false);
-        updatePositionOfElement(index, false);
+        while(index != oldIndex)
+        {
+            updatePositionOfElement(index, isUpvote);
+            oldIndex = index;            
+            index = getIndexOfClickedItem(e);
+        }
     });
 });
 
@@ -56,10 +63,8 @@ function updatePositionOfElement(indexText, isUpvote)
     var index = parseInt(indexText);
     var nextElement = getNextElement(index, isUpvote);
     var currentElement = getElementFromIndex(index);
-
     var nextElementVoteCount = parseInt($(nextElement.children(".votes:first")).text());
     var currentElementVoteCount = parseInt($(currentElement.children(".votes:first")).text());
-
 
     if(!isUpvote && nextElementVoteCount > currentElementVoteCount)
     {
