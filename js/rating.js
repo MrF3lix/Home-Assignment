@@ -1,6 +1,18 @@
 $(document).ready(function() {
     populateTable();
 
+    $(".up-vote").on('click', function(e){
+        var index = getIndexOfClickedItem(e);
+        updateVoteCount(index, true);
+        updatePositionOfElement(index, true);
+    });
+
+
+    $(".down-vote").on('click', function(e){
+        var index = getIndexOfClickedItem(e);
+        updateVoteCount(index, false);
+        updatePositionOfElement(index, false);
+    });
 });
 
 function populateTable()
@@ -12,5 +24,69 @@ function populateTable()
 
 function addItemToTable(index, name, votes)
 {
-    $("#companies tbody").append('<tr><td>' + index + '</td><td>' + name + '</td><td>' + votes + '</td><td><button type="button" class="btn btn-success vote up-vote">UP</button><button type="button" class="btn btn-danger vote down-vote">DOWN</button></td></tr>');
+    $("#companies tbody").append('<tr id="'+index+'"><td>' + index + '</td><td>' + name + '</td><td class="votes">' + votes + '</td><td><button type="button" class="btn btn-success vote up-vote">UP</button><button type="button" class="btn btn-danger vote down-vote">DOWN</button></td></tr>');
+}
+
+function getIndexOfClickedItem(e)
+{
+    return $(e.target.closest("tr")).index() + 1;
+}
+
+function updateVoteCount(index, isUpvote)
+{
+    var row = getElementFromIndex(parseInt(index));
+
+    var voteDisplayElement = row.children(".votes:first");
+    var currentVoteValueText = voteDisplayElement.text();
+    var currentVoteValue = parseInt(currentVoteValueText);
+
+    if(isUpvote)
+    {
+        voteDisplayElement.text(currentVoteValue + 1);   
+    }
+    else
+    {        
+        voteDisplayElement.text(currentVoteValue - 1);   
+    }
+
+}
+
+function updatePositionOfElement(indexText, isUpvote)
+{
+    var index = parseInt(indexText);
+    var nextElement = getNextElement(index, isUpvote);
+    var currentElement = getElementFromIndex(index);
+
+    var nextElementVoteCount = parseInt($(nextElement.children(".votes:first")).text());
+    var currentElementVoteCount = parseInt($(currentElement.children(".votes:first")).text());
+
+
+    if(!isUpvote && nextElementVoteCount > currentElementVoteCount)
+    {
+        currentElement.insertAfter(currentElement.next());
+    }
+
+    if(isUpvote && nextElementVoteCount < currentElementVoteCount)
+    {
+        currentElement.insertBefore(currentElement.prev());
+    }
+}
+
+function getNextElement(index, isUpvote)
+{
+    if(isUpvote)
+    {
+        index--;
+    }
+    else
+    {
+        index++;
+    }
+    
+    return getElementFromIndex(index);
+}
+
+function getElementFromIndex(index)
+{
+    return $("#companies tr").eq(index);
 }
