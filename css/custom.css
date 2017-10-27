@@ -2,3 +2,10 @@
     margin-right: 10px;
     width: 100px;
 }
+
+.cell-content{
+    position: relative;
+    -webkit-transition: all 0.2s duration timing-function delay;
+    -moz-transition: all 0.2s duration timing-function delay;
+    transition: all 0.2s duration timing-function delay;
+}
