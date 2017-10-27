@@ -1,0 +1,14 @@
+<svg width="7" height="8" viewBox="0 0 7 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>thumb-up</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(-50 321)">
+<g id="thumb-up">
+<g id="Vector">
+<use xlink:href="#path0_fill" transform="translate(50 -321)" fill="#FFFFFF"/>
+</g>
+</g>
+</g>
+<defs>
+<path id="path0_fill" d="M 4.47 0.00265986C 4.28 0.0226599 4.1 0.15266 4 0.34266C 3.87 0.60266 2.91 2.53266 2.72 2.72266C 2.53 2.91266 2.28 3.00266 2 3.00266L 2 7.00266L 5.5 7.00266C 5.71 7.00266 5.89 6.87266 5.97 6.69266C 5.97 6.69266 7 3.78266 7 3.50266C 7 3.22266 6.78 3.00266 6.5 3.00266L 5 3.00266C 4.72 3.00266 4.5 2.75266 4.5 2.50266C 4.5 2.25266 4.89 0.92266 4.97 0.66266C 5.05 0.40266 4.92 0.12266 4.66 0.0326599C 4.59 0.0126599 4.54 -0.00734014 4.47 0.00265986L 4.47 0.00265986ZM 0 3.00266L 0 7.00266L 1 7.00266L 1 3.00266L 0 3.00266Z"/>
+</defs>
+</svg>

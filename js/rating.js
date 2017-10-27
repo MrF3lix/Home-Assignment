@@ -25,8 +25,8 @@ function addItemToTable(index, name, votes)
                     '<td>' + name + '</td>' +
                     '<td class="votes">' + votes + '</td>' +
                     '<td>' +
-                        '<button type="button" class="btn btn-success vote up-vote">UP</button>' +
-                        '<button type="button" class="btn btn-danger vote down-vote">DOWN</button>' +
+                        '<button type="button" class="btn btn-success vote up-vote"></button>' +
+                        '<button type="button" class="btn btn-danger vote down-vote"></button>' +
                     '</td>' +
                 '</tr>');
 

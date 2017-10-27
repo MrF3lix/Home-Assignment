@@ -1,11 +1,25 @@
 .vote{
-    margin-right: 10px;
-    width: 100px;
+    margin: 5px 10px;
+    width: 80px;
+    height: 40px;
+    z-index: 100;
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.up-vote{
+    background-image: url('../svg/thumb-up.svg');
+}
+
+.down-vote{
+    background-image: url('../svg/thumb-down.svg');
 }
 
 .cell-content{
     position: relative;
-    -webkit-transition: all 0.2s duration timing-function delay;
-    -moz-transition: all 0.2s duration timing-function delay;
-    transition: all 0.2s duration timing-function delay;
+}
+
+button{
+    cursor: pointer;
 }
